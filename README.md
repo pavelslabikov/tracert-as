@@ -16,3 +16,4 @@ optional arguments:
 ## Пример запуска 
     
     sudo python3 -m tracert_as vk.com --ttl 20
+    * tracert_as - путь к главному модулю проекта
