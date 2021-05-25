@@ -33,7 +33,7 @@ class WhoisTracer:
     @staticmethod
     def create_new_socket() -> socket.socket:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(3)
+        sock.settimeout(5)
         return sock
 
     @staticmethod

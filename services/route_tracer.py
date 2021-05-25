@@ -29,7 +29,7 @@ class Traceroute:
             trace_node = self.whois_tracer.get_whois_data(address[0])
             result.append(trace_node)
             received_icmp = IcmpPacket.from_bytes(data[20:])
-            if self._is_over(received_icmp):
+            if self.check_icmp(received_icmp):
                 sender_sock.close()
                 receiver_sock.close()
                 break
@@ -39,7 +39,7 @@ class Traceroute:
         return result
 
     @staticmethod
-    def _is_over(icmp: IcmpPacket) -> bool:
+    def check_icmp(icmp: IcmpPacket) -> bool:
         if icmp.type == icmp.code == 0:
             return True
         return False
